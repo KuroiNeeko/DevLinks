@@ -1,0 +1,173 @@
+:root{
+    --text-color: #ffffff;
+    --bg-url: url(../Images/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(../Images/moon-stars.svg);
+}
+
+.light {
+    --text-color: #000000;
+    --bg-url: url(../Images/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.1);
+    --switch-bg-url: url(../Images/sol.svg);
+
+}
+
+body{
+    /* background-image: url(../Images/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center; /* (eixo y(altura) e eixo x(largura) */ 
+    /*background-size: cover; contain coloca a imagem dentro do conteúdo body */ 
+
+    /*background: color image repeat position/size */
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    height: 712px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+/* Profile */
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 122px;
+    border-radius: 100px;
+    border: 3px solid rgb(56, 42, 216);
+}
+
+#profile p {
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Switch */
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+/* Position: absolute libera o que chamamos de andar. ex: z-index: 1 
+onde de frente parece 1 na frente do outro, mas é 1 acima do outro.
+e tambem posições como bottom, top, left, right, com valores de 
+números absolutos. ex: 0, 1, 2. */
+
+/* o transform + translateY() permite que movamos o elemento na tela,
+ex: o elemento está dentro de uma caixa, se eu digitar -50% ele irá 
+mover-se 50% pra cima da caixa em que está. */
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: #ffffff var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+/* O valor initial faz o elemento voltar ao valor inicial */
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Links */
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+/* align-items: alinha a altura dos itens eixo y */
+/* justify-content: alinha a posição horizontal dos itens eixo x */
+
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* social links */
+
+#social-links {
+    display: flex;
+    padding: 24px 0;
+    font-size: 24px;
+    justify-content: center;
+}
+
+#social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+#social-links a:hover{
+    background: var(--highlight-color);
+    padding: 16px;
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
