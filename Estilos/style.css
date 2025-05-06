@@ -14,7 +14,7 @@
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
-    --highlight-color: rgba(255, 255, 255, 0.1);
+    --highlight-color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url(../Images/sol.svg);
 
 }
@@ -27,6 +27,7 @@ body{
 
     /*background: color image repeat position/size */
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 
 body * {
@@ -90,13 +91,22 @@ mover-se 50% pra cima da caixa em que está. */
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+
+    animation: slide-back 0.2s;
+}
+
+#switch button:hover{
+    outline: 8px solid var(--highlight-color);
 }
 
 /* O valor initial faz o elemento voltar ao valor inicial */
 
+/* slide-in: nome ou variável da animação que criou.
+0.4s: tempo que irá durar a animação
+forwards: prevalecer os valores estabelecidos no keyframes: slide-in. */
+
 .light #switch button{
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 }
 
 
@@ -176,10 +186,30 @@ footer {
 /* media queries */
 @media (min-width: 700px) {
     :root {
-        --bg-url: url(./Images/bg-dark.jpg);
+        --bg-url: url(../Images/bg-dark.jpg);
     }
 
     .light {
-        --bg-url: url(./Images/bg-light.jpg);
+        --bg-url: url(../Images/bg-light.jpg);
+    }
+}
+
+/* animação obs: no lugar de slide-in pode ser qualquer nome. */
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
